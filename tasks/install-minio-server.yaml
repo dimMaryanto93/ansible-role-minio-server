@@ -12,7 +12,6 @@
     owner: "root"
     group: "minio-user"
     mode: 0640
-  notify: Restart minio
 
 - name: Create systemd for minio
   get_url:
@@ -20,8 +19,11 @@
     dest: "/etc/systemd/system/minio.service"
     owner: root
     group: root
-  notify:
-    - Reload service minio
+
+- name: Reload service minio
+  ansible.builtin.service:
+    name: minio
+    state: reloaded
 
 - name: Start service minio
   ansible.builtin.service:

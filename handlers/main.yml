@@ -3,5 +3,4 @@
 
 - name: Reload service minio
   ansible.builtin.service:
-    name: minio
     state: reloaded
