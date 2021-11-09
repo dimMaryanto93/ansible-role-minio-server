@@ -1,15 +1,3 @@
-- name: Create Minio group
-  group:
-    name: minio-user
-    state: present
-
-- name: Add the user minio
-  ansible.builtin.user:
-    name: minio-user
-    group: minio-user
-    shell: "/usr/sbin/nologin"
-    comment: MinIO administration user
-
 - name: Download minio server
   get_url:
     url: https://dl.min.io/server/minio/release/linux-amd64/minio
