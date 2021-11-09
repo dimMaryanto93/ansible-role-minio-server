@@ -1,0 +1,41 @@
+- name: Create Minio group
+  group:
+    name: minio-user
+    state: present
+
+- name: Add the user minio
+  ansible.builtin.user:
+    name: minio-user
+    group: minio-user
+    shell: "/usr/sbin/nologin"
+    comment: MinIO administration user
+
+- name: Download minio server
+  get_url:
+    url: https://dl.min.io/server/minio/release/linux-amd64/minio
+    dest: "/usr/local/bin/minio"
+    mode: 'a+x'
+    owner: minio-user
+
+- name: Generate the Minio server envfile
+  template:
+    src: minio.env.j2
+    dest: "/etc/default/minio"
+    owner: "root"
+    group: "minio-user"
+    mode: 0640
+  notify: Restart minio
+
+- name: Create systemd for minio
+  get_url:
+    url: https://raw.githubusercontent.com/minio/minio-service/master/linux-systemd/minio.service
+    dest: "/etc/systemd/system/minio.service"
+    owner: root
+    group: root
+  notify:
+    - Reload service minio
+
+- name: Start service minio
+  ansible.builtin.service:
+    name: minio
+    state: started
