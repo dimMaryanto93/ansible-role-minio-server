@@ -20,12 +20,9 @@
     owner: root
     group: root
 
-- name: Reload service minio
-  ansible.builtin.service:
+- name: Restart service minio
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: yes
     name: minio
-    state: reloaded
-
-- name: Start service minio
-  ansible.builtin.service:
-    name: minio
-    state: started
+    enabled: yes

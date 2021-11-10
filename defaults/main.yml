@@ -1,6 +1,10 @@
 ---
 # defaults file for ansible-role-minio-example
 minio: 
+  host: "{{ hostvars[groups['minio'] | first ]['ansible_default_ipv4']['address'] }}"
   access_key: "<your-access-key>"
   volume_bind: "/home/minio-user"
   secret_key: "<your-secret-key>"
+  ports:
+    api: "9000"
+    console: "9664"
