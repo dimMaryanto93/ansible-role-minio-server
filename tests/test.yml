@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: ["all"]
   become: true
   roles:
-    - dimmaryanto93.ansible-role-minio-example
+    - ../../ansible-role-minio
