@@ -5,6 +5,7 @@ minio:
   access_key: "<your-access-key>"
   volume_bind: "/home/minio-user"
   secret_key: "<your-secret-key>"
+  domain: <your-domain-name-server>
   ports:
     api: "9000"
     console: "9664"

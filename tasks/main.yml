@@ -7,3 +7,5 @@
   block: 
     - name: Install server package
       include_tasks: install-minio-server.yaml
+    - name: Install client package
+      include_tasks: install-minio-client.yaml
