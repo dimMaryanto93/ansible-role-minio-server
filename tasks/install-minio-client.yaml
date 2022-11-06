@@ -1,6 +1,10 @@
 - name: Download minio client
   get_url:
     url: https://dl.min.io/client/mc/release/linux-amd64/mc
-    dest: "/usr/local/bin/mc"
-    mode: 'a+x'
-    owner: minio-user
+    dest: "/usr/bin/mc"
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: /usr/bin/mc
+    dest: /usr/local/bin/mc
+    state: link
