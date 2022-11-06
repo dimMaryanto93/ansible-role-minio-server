@@ -12,6 +12,6 @@
 
 - name: Create a directory if it does not exist for MinIO volume mount
   ansible.builtin.file:
-    path: "{{ minio.volume_bind }}"
+    path: "{{ minio_volume_bind }}"
     state: directory
     mode: '0777'

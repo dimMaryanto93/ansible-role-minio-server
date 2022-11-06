@@ -40,11 +40,11 @@ Ada beberapa variable yang temen-temen bisa gunakan untuk setting docker daemon,
 
 | Variable name                 | Example value     | Description |
 | :---                          | :---              | :---        |
-| `minio.access_key`            | `-`               | Set user credential for minio server |
-| `minio.secret_key`            | `-`               | Set password credential for minio server |
-| `minio.volume_bind`           | `/var/lib/minio`  | Set data to store ini minio object storage |
-| `minio.ports.api`             | `9000`            | Set port to access api s3 |
-| `minio.ports.console`         | `9664`            | Set port to access web console |
+| `minio_access_key`            | `-`               | Set user credential for minio server |
+| `minio_secret_key`            | `-`               | Set password credential for minio server |
+| `minio_volume_bind`           | `/var/lib/minio`  | Set data to store ini minio object storage |
+| `minio_ports_api`             | `9000`            | Set port to access api s3 |
+| `minio_ports_console`         | `9664`            | Set port to access web console |
 
 
 Dependencies
