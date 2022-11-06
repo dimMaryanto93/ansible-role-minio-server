@@ -2,6 +2,8 @@
   get_url:
     url: https://dl.min.io/client/mc/release/linux-amd64/mc
     dest: "/usr/bin/mc"
+    mode: 'a+x'
+    owner: minio-user
 
 - name: Create a symbolic link
   ansible.builtin.file:
